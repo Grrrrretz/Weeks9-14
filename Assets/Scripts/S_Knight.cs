@@ -30,7 +30,7 @@ public class S_Knight : MonoBehaviour
             canrun = false;
         }
 
-        if(canrun = true)
+        if(canrun == true)
         {
             transform.position += transform.right * direction * speed * Time.deltaTime;
         }
