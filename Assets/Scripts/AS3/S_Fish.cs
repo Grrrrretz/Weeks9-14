@@ -28,7 +28,11 @@ public class S_Fish : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && spriteRenderer.bounds.Contains(mousepos))
         {
             Destroy(Fish,1);
-            GetFish = true; 
+            GetFish = true;
+        }
+        else
+        {
+            Destroy(Fish, 5);
         }
         if (GetFish == true)//Play the animation
         {

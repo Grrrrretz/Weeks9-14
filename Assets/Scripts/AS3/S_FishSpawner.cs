@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,15 +21,15 @@ public class S_FishSpawner : MonoBehaviour
     {
         while (true)
         {
-            int randomnumSpawn = fishSpawns[UnityEngine.Random.Range(0, fishSpawns.Length)];
+            int randomnumSpawn = fishSpawns[Random.Range(0, fishSpawns.Length)];
 
-            float x = UnityEngine.Random.Range(-8f, 8f);
-            float y = UnityEngine.Random.Range(-4f, 4f);
+            float x = Random.Range(-8f, 8f);
+            float y = Random.Range(-3f, 3f);
             Vector2 spawnPos = new Vector2(x, y);
             GameObject fishprefab = Fishr[randomnumSpawn];
 
             GameObject fish = Instantiate(fishprefab, spawnPos, Quaternion.identity);
-            yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.5f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
         }
     }
 }
