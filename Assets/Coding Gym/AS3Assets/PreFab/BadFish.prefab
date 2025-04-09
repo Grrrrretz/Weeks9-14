@@ -125,3 +125,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   t: 0
+  smallfish:
+    m_PersistentCalls:
+      m_Calls: []
+  bigfish:
+    m_PersistentCalls:
+      m_Calls: []
+  badfish:
+    m_PersistentCalls:
+      m_Calls: []

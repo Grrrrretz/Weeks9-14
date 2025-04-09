@@ -32,6 +32,6 @@ public class S_changeingscrip : MonoBehaviour
     public void spawnPrefab()
     {
 
-        Instantiate(cafe, Random.RandomRange(1, 10) * Vector3.one, Quaternion.identity);
+        Instantiate(cafe, Random.Range(1, 10) * Vector3.one, Quaternion.identity);
     }
 }

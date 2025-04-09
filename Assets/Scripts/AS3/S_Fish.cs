@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class S_Fish : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class S_Fish : MonoBehaviour
     public AnimationCurve AnimationCurve;
     bool GetFish = false;
     public float t = 0f;
+    //Set up the listeners that will be used
+    public UnityEvent smallfish;
+
+    public UnityEvent bigfish;
+
+    public UnityEvent badfish;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,14 +32,26 @@ public class S_Fish : MonoBehaviour
         Vector2 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
-        if (Input.GetMouseButtonDown(0) && spriteRenderer.bounds.Contains(mousepos))
+        if (Input.GetMouseButtonDown(0) && spriteRenderer.bounds.Contains(mousepos))//When the mouse is clicked and overlaps with the sprite, the corresponding listener will be triggered based on the type of fish, the animation will play, and the sprite will be destroyed.
         {
+            if(FishType == 0)
+            {
+                smallfish.Invoke();
+            }
+            else if (FishType == 1)
+            {
+                bigfish.Invoke();
+            }
+            else if (FishType == 2)
+            {
+                badfish.Invoke();
+            }
             Destroy(Fish,1);
             GetFish = true;
         }
         else
         {
-            Destroy(Fish, 5);
+            Destroy(Fish, 5);//If the fish is not clicked within 5 seconds, it will automatically disappear.
         }
         if (GetFish == true)//Play the animation
         {
